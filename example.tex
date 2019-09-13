@@ -147,6 +147,14 @@ $n = 1,2,3,...$
 燃油的压力变化量与密度变化量成正比，比例系数为$\frac{E}{\rho}$，其中$E$为弹性模量，因此可列出常微分方程：
 
 已知方程的边值条件为$P = 100MPa, \rho = 0.850 mh/mm^3$，同时带入公式（6），可解得燃油压强与密度的表达式：
+\begin{equation}
+E = 1489 e^{0.00284P} + 48.79 e^{0.01376 P}
+\end{equation}
+
+\begin{equation}
+\frac{\mathrm{d}P}{\mathrm{d}\rho} = \frac{E}{\rho} = \frac{1489 e^{0.00284P} + 48.79 e^{0.01376 P}}{\rho}
+\end{equation}
+
 \subsection{问题一模型的解决}
 \subsubsection{基于四阶龙格库塔的数值仿真}
 对于复杂的常微分方程常常难以得到解析解，因此我们选择合理的微分方程数值解法。龙格-库塔算法是一种流行的高精度数值方法，最常用的为经典四阶龙格-库塔算法（$classical\ fourth-order\ RK\ method$），其形式为：
