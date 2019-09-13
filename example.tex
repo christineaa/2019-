@@ -96,11 +96,12 @@
 
  
 \section{模型的建立与解决}
-\subsection{问题一模型}
+\subsection{问题一：阀-管-嘴模型}
+在问题一中，根据题目所给条件，只需考虑单向阀流入高压油管的燃油量与喷出的燃油量，而流入与喷出的燃油将影响高压油管内的燃油密度，进而影响管内压力，因此我们将把高压油管、单向阀与喷油嘴看作一个系统，研究该系统内压力的变化，期望建立压力与时间的变化方程，
 \subsubsection{公式推导}
 根据燃油的可压缩性，在高压油管与外界没有质量交换时，其内的压强变化为
 \begin{equation}
-	E = -\frac{dP_c}{dV}V
+	E = -\frac{\mathrm{d}P_c}{\mathrm{d}V}V
 \end{equation}
 其中：$V$代表高压油管内的体积，符号表示压强随着体积的增大而减小。
 当单向阀和喷油嘴开启时，进出高压油管的流量为
@@ -136,28 +137,28 @@ $n = 1,2,3,...$
 
 因此，当高压油管与外界有质量交换时压力控制方程（1）结合（3）-（4），得到了高压油管内压力变化量与时间的关系：
 \begin{equation}
-	dP_c = \frac{E}{V_c}(Q_{in} - Q_{out})
+	\mathrm{d}P_c = \frac{E}{V_c}(Q_{in} - Q_{out})
 \end{equation}
 
 在公式（5）中，弹性模量与密度都是与压强有关的，因此要先得到两者与压强的表达式。
 \subsubsection{弹性模量与压强的关系}
 根据附件三所给的数据，我们可以通过拟合得到弹性模量与压强之间的关系为：
-
-\subsubsection{燃油压强与燃油密度的关系}
-燃油的压力变化量与密度变化量成正比，比例系数为$\frac{E}{\rho}$，其中$E$为弹性模量，因此可列出常微分方程：
-
-已知方程的边值条件为$P = 100MPa, \rho = 0.850 mh/mm^3$，同时带入公式（6），可解得燃油压强与密度的表达式：
 \begin{equation}
 E = 1489 e^{0.00284P} + 48.79 e^{0.01376 P}
 \end{equation}
+拟合误差为
 
+
+\subsubsection{燃油压强与燃油密度的关系}
+燃油的压力变化量与密度变化量成正比，比例系数为$\frac{E}{\rho}$，其中$E$为弹性模量，因此可列出常微分方程：
 \begin{equation}
 \frac{\mathrm{d}P}{\mathrm{d}\rho} = \frac{E}{\rho} = \frac{1489 e^{0.00284P} + 48.79 e^{0.01376 P}}{\rho}
 \end{equation}
-
+已知方程的边值条件为$P = 100MPa, \rho = 0.850\ mh/mm^3$，同时带入公式（6），可解得燃油压强与密度的表达式：
 \subsection{问题一模型的解决}
+我们的目标是找到适合的$\widetilde{t}$，使微分方程公式（5）的解稳定后的平均值为100$MPa$且方差较小。
 \subsubsection{基于四阶龙格库塔的数值仿真}
-对于复杂的常微分方程常常难以得到解析解，因此我们选择合理的微分方程数值解法。龙格-库塔算法是一种流行的高精度数值方法，最常用的为经典四阶龙格-库塔算法（$classical\ fourth-order\ RK\ method$），其形式为：
+对于复杂的常微分方程常常难以得到解析解，因此我们选择使用合理的微分方程数值解法，从而得到随着时间变化高压油管内平均压强的变化。龙格-库塔算法是一种流行的高精度数值方法，最常用的为经典四阶龙格-库塔算法（$classical\ fourth-order\ RK\ method$），其形式为：
 \[
 y_{n+1}=y_{n}+\frac{1}{6}(k_{1}+2k_{2}+2k_{3}+k_{4})h
 \]
@@ -172,7 +173,7 @@ k_{4}&=f(t_{i}+h,y_{i}+hk_{3})
 
 $h$为时间步长
 
-使用四阶龙格库塔用于公式（5）求解出压强的数值解。为了使高压油管内的平均压力稳定在100$MPa$，我们要确定$\widetilde{t}$使数值解的平均值为100$MPa$且方差最小。
+首先，我们任意给定了单向阀的开启时间$\widetilde{t}$，将四阶龙格库塔用于公式（5）求解出压强的数值解，可以得到高压油管、单向阀与喷油嘴组成的系统平衡后
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=.6\textwidth]{1.png}
@@ -202,9 +203,11 @@ $h$为时间步长
 
 %参考文献
 \begin{thebibliography}{9}%宽度9
- \bibitem{bib:one} 韩中庚，数学建模方法及其应用，北京：高等教育出版社，2009。 
- \bibitem{bib:two}姜启源，谢金星，叶俊，数学模型，北京：高等教育出版社，2003。 
- \bibitem{bib:three}龚纯，王正林，精通 MATLAB 最优化计算，北京：电子工业出版社，2012。 
+ \bibitem{bib:one} 蔡梨萍. 基于MATLAB的柴油机高压喷油过程的模拟计算[D].华中科技大学,2005.
+ 
+ \bibitem{bib:two}李旭林,何勇灵.两相条件下柴油机喷油系统的数学模型[J].内燃机学报,2007(05):428-432.
+ 
+ \bibitem{bib:three}Lino, Paolo \& Maione, Bruno \& Rizzo, Alessandro. (2005). A control-oriented model of a Common Rail injection system for diesel engines. IEEE International Conference on Emerging Technologies and Factory Automation, ETFA. 1. 7 pp. - 563. 10.1109/ETFA.2005.1612572. 
  \bibitem{bib:four}卓金武，李必文，魏永生，秦健，MATLAB 在数学建模中的应用，北京：北京 航空航天大学出版社，2014。
 
 \end{thebibliography}
