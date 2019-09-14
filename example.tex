@@ -177,7 +177,15 @@
 			$h$为时间步长
 			\subsubsection{情况一：恒定稳定压强的求解}
 			结合公式（3）-（6），再加上高压油管内容积，常微分方程表示为：
-			%大括号，全部括起来
+			\begin{equation} \left\{
+\begin{aligned}
+&\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c}(Q_{in} - Q_{out}) \\
+&Q_{in} (P_c,t) \\
+&Q_{out} (P_c,t) \\
+&E(P_c) = E = 1489 e^{0.00284P_c} + 48.79 e^{0.01376 P_c} \\
+&V_c = A_cL = \frac{\pi d_p^2}{4} \cdot L
+\end{aligned}
+\right. \end{equation}
 			$V_c = A_cL = \frac{\pi d_p^2}{4} \cdot L$
 			初值条件为$t = 0, P_c = 100MPa$。
 			首先，我们任意给定了单向阀的开启时间$\widetilde{t}$，对上述方程利用四阶龙格库塔法解出数值解。可以得到阀-管-嘴系统平衡后高压油管内的平均压强。然后，用二分法调整$\widetilde{t}$确定单向阀的开启时间，使平均压强在100MPa左右的大致范围，得到大致范围是$\widetilde{t}\in [0.29ms,0.3ms]$。
