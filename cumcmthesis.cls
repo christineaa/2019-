@@ -109,13 +109,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
 \renewcommand*{\baselinestretch}{1.38}
 % 修改tabular 环境, 设置表格中的行间距为正文行间距.
-\let\mcm@oldtabular\tabular
-\let\mcm@endoldtabular\endtabular
-\renewenvironment{tabular}%
-	{\bgroup%
-	\renewcommand{\arraystretch}{1.38}%
-	\mcm@oldtabular}%
-	{\mcm@endoldtabular\egroup}
+%\let\mcm@oldtabular\tabular
+%\let\mcm@endoldtabular\endtabular
+%\renewenvironment{tabular}%
+%	{\bgroup%
+%	\renewcommand{\arraystretch}{1.38}%
+%	\mcm@oldtabular}%
+%	{\mcm@endoldtabular\egroup}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 设置字体
