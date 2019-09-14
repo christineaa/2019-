@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.6.19)  14 SEP 2019 01:03
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.6.19)  14 SEP 2019 16:39
 entering extended mode
 **./example.tex
 (example.tex
@@ -1068,66 +1068,31 @@ Package fontspec Info: Font family 'SimSun(1)' created for font 'SimSun' with
 LaTeX Font Warning: Font shape `TU/SimSun(1)/bx/n' undefined
 (Font)              using `TU/SimSun(1)/m/n' instead on input line 70.
 
-[3] [4] [5]
-Underfull \hbox (badness 5388) in paragraph at lines 204--205
-[]\TU/SimSun(0)/m/n/12.05 李 旭 林\TU/TimesNewRoman(0)/m/n/12.05 , \TU/SimSun(0)/m
-/n/12.05 何 勇 灵\TU/TimesNewRoman(0)/m/n/12.05 . \TU/SimSun(0)/m/n/12.05 两 相 条 件 
-下 柴 油 机 喷 油 系 统 的 数 学 模 型 \TU/TimesNewRoman(0)/m/n/12.05 [J]. \TU/SimSun(0)/m/n
-/12.05 内 燃 机 学
- []
+[3] [4])
+Runaway argument?
+{\mathrm {d}t$，其中$\frac {\mathrm {d}P}{\mathrm {d}t$考虑进入\ETC.
+! File ended while scanning use of \frac .
+<inserted text> 
+                \par 
+<*> ./example.tex
+                 
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
 
+! Emergency stop.
+<*> ./example.tex
+                 
+*** (job aborted, no legal \end found)
 
-Underfull \hbox (badness 1325) in paragraph at lines 206--207
-\TU/TimesNewRoman(0)/m/n/12.05 of a Common Rail injection system for diesel eng
-ines. IEEE International Confer-
- []
-
-
-Underfull \hbox (badness 2142) in paragraph at lines 206--207
-\TU/TimesNewRoman(0)/m/n/12.05 ence on Emerging Technologies and Factory Automa
-tion, ETFA. 1. 7 pp. - 563.
- []
-
-[6]
-("C:\Users\christine\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstla
-ng1.sty"
-File: lstlang1.sty 2019/02/27 1.8b listings language file
-)
-
-Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "FangSong/B" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "FangSong/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
-(fontspec)             with options [Script={CJK}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=DFLT;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-
- [7] [8] (example.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 22007 strings out of 427669
- 459654 string characters out of 3144140
- 737385 words of memory out of 3000000
- 25778 multiletter control sequences out of 15000+200000
- 540357 words of font info for 115 fonts, out of 3000000 for 9000
+ 21353 strings out of 427669
+ 451503 string characters out of 3144140
+ 531123 words of memory out of 3000000
+ 25144 multiletter control sequences out of 15000+200000
+ 540301 words of font info for 108 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 61i,10n,82p,375b,1601s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on example.pdf (8 pages).
+ 61i,10n,82p,375b,687s stack positions out of 5000i,500n,10000p,200000b,50000s
+Output written on example.pdf (4 pages).
