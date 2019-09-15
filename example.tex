@@ -27,7 +27,7 @@
 		
 		
 		
-		\keywords{\quad  \quad   \quad  }
+		\keywords{阀-管-喷嘴系统\quad 泵-管-喷嘴系统\quad 模拟计算\quad 龙格库塔法\quad 数值仿真\quad 可压缩流体连续性方程\quad        }
 	\end{abstract}
 	
 	
@@ -246,9 +246,19 @@
 			2. 由第二阶段可知，当单向阀开启时长为$0.76s$时，压力能够稳定在150Mpa，那么我们将10s分段，分为增压段与二次增压段。二次增压段时，设置单向阀的开启时间为$0.76s$，就能保证压力在二次增压后稳定在150Mpa。而增压段的持续时长与此时单向阀的开启时长有非常多种组合———只需保证高压油管内压力在第10秒时恰好到达150Mpa即可。
 			
 			综合上述结果得到以下单向阀调整方案：
+			\begin{table}[!htbp]
+				\centering
+				\begin{tabular}{@{}c|c|c@{}}
+					\toprule
+					阶段 & 第一阶段  & 第二阶段 \\ \hline
+					2s       & 0.8875  & 0.76 \\ \hline
+					5s       & 0.713    & 0.76 \\  \hline
+					10s（方案一） & 0.745  & 0.76 \\ \hline
+					10s（方案二） & \begin{tabular}[c]{@{}c@{}}0.6 (\textless{}8s) \\ \hline 0.76 (\textgreater{}8s)\end{tabular} & 0.76 \\ \bottomrule
+				\end{tabular}
+			\end{table}
 			
-			
-			这样的方案可以非常好地满足变稳定压强情况下的高压油管内压强的稳定。
+			这样的方案可以非常好地满足在不同的给定时长内从100MPa增加到150MPa，且稳定在150MPa，如图4所示。
 			\begin{figure}[!htbp]
 				\centering
 				\includegraphics[width=1\textwidth]{方案示意图.png}
@@ -348,9 +358,9 @@
 			
 			\begin{equation} \left\{
 			\begin{aligned}
-			&\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c} \left[ \, \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} - CA_{out} \sqrt{\frac{2(P_c - P_0)}{\rho_c}} \, \right] \\
-			&\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p} \left[ \, \frac{\pi d_p^2}{4}  \frac{\mathrm{d}h_p}{\mathrm{d}t} - \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} \, \right],P_p>0.5MPa \\
-			&\frac{\mathrm{d}P_p}{\mathrm{d}t} = 0
+			&\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c} \left[ \, \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} - CA_{out} \sqrt{\frac{2(P_c - P_0)}{\rho_c}} \, \right]& \\
+			&\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p} \left[ \, \frac{\pi d_p^2}{4}  \frac{\mathrm{d}h_p}{\mathrm{d}t} - \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} \, \right]&,P_p>0.5MPa \\
+			&\frac{\mathrm{d}P_p}{\mathrm{d}t} = 0&,P_p\leq 0.5MPa
 			\end{aligned}\right. 
 			\end{equation}
 			
@@ -361,7 +371,7 @@
 				\item $P_p$在合理范围内波动
 			\end{itemize}
 		
-			当时间步长取较小值的时候，数值求解计算量巨大，长时间无法得到结果，因此我们选取时间步长$\delta t = 0.1ms$，用四阶龙格库塔法对微分方程组(20)求得数值解。
+			当时间步长取较小值的时候，数值求解计算量巨大，长时间无法得到结果，因此我们选取时间步长$ t = 0.1ms$，用四阶龙格库塔法对微分方程组(20)求得数值解。
 			注意到喷油嘴与凸轮运动都是周期性的，在用MATLAB编程过程中，要将$h_p,A_out,h_v$设置为周期性函数。与模型一找最优解的方法类似，我们确定当凸轮角速度为$rad/ms$时，能够满足题目要求，使高压油管内的压强稳定在100MPa。
 						
 			\subsection{问题三：配置低压阀的泵­-管-­喷嘴模型}
