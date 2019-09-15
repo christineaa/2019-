@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.6.19)  15 SEP 2019 03:16
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7050 64-bit) (preloaded format=xelatex 2019.6.19)  15 SEP 2019 13:32
 entering extended mode
 **./example.tex
 (example.tex
@@ -1079,16 +1079,15 @@ File: figures/150稳定.png Graphic file (type bmp)
  [7] [8]
 File: figures/方案示意图.png Graphic file (type bmp)
 <figures/方案示意图.png>
+ [9]
 File: figures/整体示意图.png Graphic file (type bmp)
 <figures/整体示意图.png>
- [9]
 File: figures/油泵示意图.png Graphic file (type bmp)
 <figures/油泵示意图.png>
- [10]
 File: figures/凸轴示意图.png Graphic file (type bmp)
 <figures/凸轴示意图.png>
- [11] [12]
-Underfull \hbox (badness 5388) in paragraph at lines 363--364
+ [10] [11] [12] [13]
+Underfull \hbox (badness 5388) in paragraph at lines 376--377
 []\TU/SimSun(0)/m/n/12.05 李 旭 林\TU/TimesNewRoman(0)/m/n/12.05 , \TU/SimSun(0)/m
 /n/12.05 何 勇 灵\TU/TimesNewRoman(0)/m/n/12.05 . \TU/SimSun(0)/m/n/12.05 两 相 条 件 
 下 柴 油 机 喷 油 系 统 的 数 学 模 型 \TU/TimesNewRoman(0)/m/n/12.05 [J]. \TU/SimSun(0)/m/n
@@ -1096,18 +1095,18 @@ Underfull \hbox (badness 5388) in paragraph at lines 363--364
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 365--366
+Underfull \hbox (badness 1325) in paragraph at lines 378--379
 \TU/TimesNewRoman(0)/m/n/12.05 of a Common Rail injection system for diesel eng
 ines. IEEE International Confer-
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 365--366
+Underfull \hbox (badness 2142) in paragraph at lines 378--379
 \TU/TimesNewRoman(0)/m/n/12.05 ence on Emerging Technologies and Factory Automa
 tion, ETFA. 1. 7 pp. - 563.
  []
 
-[13]
+[14]
 ("C:\Users\christine\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstla
 ng1.sty"
 File: lstlang1.sty 2019/02/27 1.8b listings language file
@@ -1135,18 +1134,18 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=DFLT;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [14] [15] (example.aux)
+ [15] [16] (example.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 22138 strings out of 427669
- 464885 string characters out of 3144140
- 739755 words of memory out of 3000000
- 25889 multiletter control sequences out of 15000+200000
+ 22118 strings out of 427669
+ 463593 string characters out of 3144140
+ 739336 words of memory out of 3000000
+ 25869 multiletter control sequences out of 15000+200000
  547782 words of font info for 144 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  61i,11n,82p,499b,1603s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on example.pdf (15 pages).
+Output written on example.pdf (16 pages).

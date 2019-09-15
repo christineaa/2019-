@@ -3,7 +3,7 @@
 
 %\documentclass{cumcmthesis}
 \documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
-
+%\usepackage{diagbox}
 \usepackage{url}
 \title{ }
 \tihao{B}
@@ -150,7 +150,7 @@
 	\end{equation}
 	$n = 1,2,3,...$
 	
-	因此，当高压油管与外界有质量交换时压力控制结合（3）-（4）对方程（1）变形为$\frac{\mathrm{d}P}{\mathrm{d}t}=-\frac{E}{V}\frac{\mathrm{d}V}{\mathrm{d}t}$，其中$\frac{\mathrm{d}V}{\mathrm{d}t}$考虑进入与流出腔体的流量。于是得到了高压油管内压力变化量与时间的关系：
+	因此，当高压油管与外界有质量交换时，压力控制结合（3）-（4）对方程（1）变形为$\frac{\mathrm{d}P}{\mathrm{d}t}=-\frac{E}{V}\frac{\mathrm{d}V}{\mathrm{d}t}$，其中$\frac{\mathrm{d}V}{\mathrm{d}t}$考虑进入与流出腔体的流量。于是得到了高压油管内压力变化量与时间的关系：
 			\begin{equation}
 			\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c}(Q_{in} - Q_{out})
 			\end{equation}
@@ -170,7 +170,7 @@
 			\frac{\mathrm{d}P}{\mathrm{d}\rho} = \frac{E}{\rho} = \frac{1489 e^{0.00284P} + 48.79 e^{0.01376 P}}{\rho}
 			\end{equation}
 			已知方程的边值条件为$P = 100MPa, \rho = 0.850\ mg/mm^3$，同时带入公式（6），可解得燃油压强与密度的表达式。
-			\subsection{问题一模型的解决}
+			\subsection{模型一求解}
 			在第一问中，我们期待找到适合的$\widetilde{t}$，使微分方程公式（5）的解稳定后的平均值为100$MPa$且方差较小。
 			在第二问中，要求将高压油管内的压强从100MPa增加到150MPa，我们将设计单向阀时长调整方案，调整方案分为两个阶段，第一阶段，增长单向阀时长使高压油管增加到150MPa；第二阶段，降低单向阀时长使高压油管稳定在150MPa。
 			\subsubsection{基于四阶龙格库塔的数值仿真}
@@ -246,7 +246,7 @@
 			2. 由第二阶段可知，当单向阀开启时长为$0.76s$时，压力能够稳定在150Mpa，那么我们将10s分段，分为增压段与二次增压段。二次增压段时，设置单向阀的开启时间为$0.76s$，就能保证压力在二次增压后稳定在150Mpa。而增压段的持续时长与此时单向阀的开启时长有非常多种组合———只需保证高压油管内压力在第10秒时恰好到达150Mpa即可。
 			
 			综合上述结果得到以下单向阀调整方案：
-			表格！！！！！！！
+			
 			
 			这样的方案可以非常好地满足变稳定压强情况下的高压油管内压强的稳定。
 			\begin{figure}[!htbp]
@@ -255,12 +255,13 @@
 				\caption{不同控制方案下高压油管内压强随时间的变化}
 			\end{figure}
 			\subsection{问题二：泵-管-喷嘴模型}
-			在问题二中，考虑了较为复杂的情况，在实际中进入高压油管的燃油来自高压油泵的柱塞腔出口，出口处由一个单向阀与高压油管连接。当单向阀油泵测的压力大于油管测的压力时，单向阀开启；否则，处于关闭状态。高压油管由凸轮驱动，凸轮旋转的快慢决定了油泵柱塞运动的快慢，进而影响其内压强变化。进入高压油泵的燃油仅有高压油泵内的压强与高压油管内的压强决定，为了找到使高压油管内压强稳定的凸轮角速度，我们将把高压油泵、高压油管和喷油嘴看作一个系统，研究该系统压力随时间的变化。
+			在问题二中，考虑了较为复杂的情况，在实际中进入高压油管的燃油来自高压油泵的柱塞腔出口，出口处由一个单向阀与高压油管连接。当单向阀油泵测的压力大于油管测的压力时，单向阀开启；否则，处于关闭状态。高压油管由凸轮驱动，凸轮旋转的快慢决定了油泵柱塞运动的快慢，进而影响其内压强变化。进入高压油泵的燃油仅由油泵内的压强与油管内的压强决定，为了找到使高压油管内压强稳定的凸轮角速度，我们将把高压油泵、高压油管和喷油嘴看作一个系统，研究高压油泵的平均压力与高压油管的平均压力随时间的变化。
 			
-			与模型一相似，根据柱塞与针阀的工作特性，我们将分别考虑两者运动过程中压力与时间的变化关系。
+			根据假设，柱塞与针阀的运动都是周期性的，我们将分别考虑两者运动过程中压力与时间的变化关系。
 			\begin{figure}[!htbp]
 				\centering
-				\includegraphics[width=1\textwidth]{整体示意图.png}
+				\includegraphics[width=1
+				\textwidth]{整体示意图.png}
 				\caption{整体示意图}
 			\end{figure}
 			\subsubsection{柱塞运动过程}
@@ -272,13 +273,13 @@
 			
 			高压油泵柱塞的压油过程由凸轮驱动柱塞上下运动实现，当挺柱体在凸轮基圆时，如图1(a)所示，柱塞腔与低压油腔通过进、回油孔联通，从而向柱塞腔供油。柱塞向上移动时压缩柱塞腔内的燃油，燃油压强随着体积变小而不断变大，当柱塞腔内的压力大于高压油管内的压力时，柱塞腔与高压油管连接的单向出油阀开启，使燃油进入高压油管内。由于忽略柱塞腔向外的泄露流量及流入低压油道的流量，在$t$至$t + \mathrm{d}t$时刻内，柱塞腔内燃油量的平衡关系由下式给出：
 			
-			\begin{equation}Q_P = Q_{VP} + Q_{in}\end{equation}，其高压油泵内的连续性方程由(8)给出：
+			\begin{equation}Q_P = Q_{VP} + Q_{in}\end{equation}，高压油泵内的连续性方程由(8)给出：
 			
 			\begin{equation}\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p}(Q_{p} - Q_{in})\end{equation}
 			
-			其中几何供油率$Q_p$是指喷油泵凸轮随凸轮轴转角$\theta = \omega t$变化而供入系统的燃油流量，它与柱塞升程$h_p$具有以下关系：
+			其中几何供油率$Q_P$是指喷油泵凸轮随凸轮轴转角$\theta = \omega t$变化而供入系统的燃油流量，它与柱塞升程$h_p$具有以下关系：
 			
-			\begin{equation}Q_p = A_p \frac{\mathrm{d}h_p}{\mathrm{d}t} = \frac{\pi d_p^2}{4} \cdot \frac{\mathrm{d}h_p}{\mathrm{d}t}\end{equation}
+			\begin{equation}Q_P = A_p \frac{\mathrm{d}h_p}{\mathrm{d}t} = \frac{\pi d_p^2}{4} \cdot \frac{\mathrm{d}h_p}{\mathrm{d}t}\end{equation}
 			$A_p$为柱塞横截面积，$d_p$为柱塞的直径。
 			柱塞腔有效容积$V_p$也直接取决于柱塞升程：
 			
@@ -290,28 +291,31 @@
 				\caption{凸轴示意图}
 			\end{figure}
 		
-			在极坐标下画出附件二所给的极径与极角的数据，如图2所示，并得到最大极径$r_{max}$与最小极径$r_{min}$。凸轮绕极心旋转，旋转时凸轮最高点与推动柱塞的装置相接，假设接触面光滑，因此柱塞升程$h_p$仅由凸轮的旋转决定。若以凸轮基圆与挺住体接触为初始角，可以通过极坐标转换求出在各幅角离散点上的柱塞升程，利用Fourier逼近得到其近似曲线：
+			在极坐标下画出附件二所给的极径与极角的数据，如图7所示，并得到最大极径$r_{max}$与最小极径$r_{min}$。凸轮绕极心旋转，旋转时凸轮最高点与推动柱塞的装置相接，假设接触面光滑，那么柱塞升程$h_p$仅由凸轮的旋转决定。若以凸轮基圆与挺住体接触为初始角，可以通过极坐标转换求出在各幅角离散点上的柱塞升程，利用Fourier逼近得到其近似曲线：
 			\begin{equation}h_p = 2.213 - 2.243 \cos(0.8316 \omega t) + 1.341 \sin(0.8316 \omega t)\end{equation}
 			
 			根据单向阀的运作原理，流入油管的流量可以表达为
 			
 			\begin{equation}Q_{in} = \xi CA_{in} \sqrt{\frac{2(p_p - p_c)}{\rho_p}} = \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(p_p - p_c)}{\rho_p}}\end{equation}
 			
-			其中$\xi = \left\{ \begin{aligned}  1, \, p_p \geq p_c \\ 0, \, p_p < p_c \end{aligned} \right.$模拟了单向阀的开关机制。
+			其中$\xi = \left\{ \begin{aligned}  1, \, P_p \geq P_c \\ 0, \, P_p < P_c \end{aligned} \right.$模拟了单向阀的开关机制。
 			
 			另外，$Q_{VP}$代表柱塞腔压力变化引起的压缩油量变化率：
 			$$
 			Q_{VP} = \frac{V_p}{E} \frac{\mathrm{d}P_p}{\mathrm{d}t}
 			$$
 			综合()，()，()和()式得到以下关系：
-			$$
-			\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p} \left[ \, \frac{\pi d_p^2}{4}  \frac{\mathrm{d}h_p}{\mathrm{d}t} - \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(p_p - p_c)}{\rho_p}} \, \right]
-			$$
+			\begin{equation}
+				\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p} \left[ \, \frac{\pi d_p^2}{4}  \frac{\mathrm{d}h_p}{\mathrm{d}t} - \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(p_p - p_c)}{\rho_p}} \, \right]
+			\end{equation}
+			
+			
 			
 			
 			\subsubsection{针阀运动过程}
 			
-			喷油器针阀的运动规律对喷油器的响应时间以及喷油规律起决定性作用，而针阀的升程由附件2（针阀运动曲线 ）给出
+			针阀在高压油管运作时周期性工作，与问题一一致针阀每秒喷油运动10次，当针阀开启高压油管便向外喷油。
+			喷油器针阀的运动规律对喷油器的响应时间以及喷油规律起决定性作用，而针阀的升程由附件2（针阀运动曲线 ）给出，对数据进行函数拟合，拟合误差为$RMES = $。在一个运动周期内，升程与时间的关系为：
 			
 			\begin{equation}
 			h_v(t) = \left\{ \begin{array}{ll} \begin{array}{ll}
@@ -324,25 +328,34 @@
 			\end{array} \right.
 			\end{equation}
 			
-			当$h_v > 0$时针阀开启，燃油向喷孔流动通过喷孔喷出，喷油的有效横截面积取决于针阀的升程，其具体表达式为
+			针阀宽度直径大于喷油嘴的直径，只有当$h_v > 0$时，即针阀向上运动，燃油才能向喷孔流动喷出。因此，喷油的有效横截面积取决于针阀的升程，其具体表达式为
 			
 			\begin{equation}A_{out} = \min\left\{ \pi[d_v h_v(t) \tan \varphi + h_v^2(t) \tan^2\varphi ], \frac{1}{4} \pi d_{out}^2 \right\}\end{equation}
 			
-			其中$d_{out}$为喷孔直径，由此可以求出喷出高压油管的流量
+			其中$d_{out}$为喷孔直径，向外喷油的流量由喷油嘴两边的压强差与高压油管内的燃油密度决定，而燃油密度随着压强变化而变化，由此可以求出喷出高压油管的流量
 			
-			\begin{equation}Q_{out} = CA_{out} \sqrt{\frac{2(p_c - p_0)}{\rho_c}}\end{equation}
+			\begin{equation}Q_{out} = CA_{out} \sqrt{\frac{2(P_c - P_0)}{\rho_c}}\end{equation}
 			
 			
 			
-			\subsubsection{流动连续性方程}
+			\subsubsection{泵-管-喷嘴系统压力变化}
 			
-			随着柱塞泵的行程变化和喷油等因素的影响，入口体积流量和出口体积流量处于不断变化的状态。根据流体的可压缩性和连续性方程，可得到高压油管内燃油压力变化的数学表达式，即
+			随着柱塞泵的上下运动和喷油等因素的影响，入口体积流量和出口体积流量处于不断变化的状态。根据流体的可压缩性和流动连续性方程，可得到高压油管内燃油压力变化的数学表达式，即
 			
-			\begin{equation}\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c}(Q_{in} - Q_{out}) = \frac{E}{V_c} \left[ \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(p_p - p_c)}{\rho_p}} - CA_{out} \sqrt{\frac{2(p_c - p_0)}{\rho_c}} \right]\end{equation}
+			\begin{equation}\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c}(Q_{in} - Q_{out}) = \frac{E}{V_c} \left[ \, \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} - CA_{out} \sqrt{\frac{2(P_c - P_0)}{\rho_c}} \, \right]\end{equation}
 			
-			联立()，()两式得到微分方程组：
+			联立(16)，(20)两式得到微分方程组：
 			
-			\begin{equation} \left\{\begin{aligned}&\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c} \left[ \, \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(p_p - p_c)}{\rho_p}} - CA_{out} \sqrt{\frac{2(p_c - p_0)}{\rho_c}} \, \right] \\&\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p} \left[ \, \frac{\pi d_p^2}{4}  \frac{\mathrm{d}h_p}{\mathrm{d}t} - \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(p_p - p_c)}{\rho_p}} \, \right]\end{aligned}\right. \end{equation}
+			\begin{equation} \left\{\begin{aligned}&\frac{\mathrm{d}P_c}{\mathrm{d}t} = \frac{E}{V_c} \left[ \, \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} - CA_{out} \sqrt{\frac{2(P_c - P_0)}{\rho_c}} \, \right] \\&\frac{\mathrm{d}P_p}{\mathrm{d}t} = \frac{E}{V_p} \left[ \, \frac{\pi d_p^2}{4}  \frac{\mathrm{d}h_p}{\mathrm{d}t} - \xi C \frac{\pi d_{in}^2}{4} \sqrt{\frac{2(P_p - P_c)}{\rho_p}} \, \right]\end{aligned}\right. \end{equation}
+			
+			\subsubsection{模型二模型求解}
+			在问题二中，我们期待找到合适的凸轮角速度$\omega$，使微分方程组(20)的解$(P_c,P_p)$满足一下条件：
+			\begin{itemize}
+				\item $P_c$稳定在100MPa
+				\item $P_p$在合理范围内波动
+			\end{itemize}
+		
+			用四阶龙格库塔法对微分方程组(20)求得数值解，			
 			\subsection{问题三模型}
 			
 			
